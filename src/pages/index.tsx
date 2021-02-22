@@ -1,11 +1,12 @@
 import Head from "next/head";
 import { Description } from "../components/Description";
+import { Page } from "../components/Page";
 import { PageHeader } from "../components/PageHeader";
 import { appOrigin } from "../constants/appOrigin";
 
 export default function Home() {
   return (
-    <div>
+    <Page>
       <Head>
         <title>Everycolor</title>
         <link rel="icon" href="/favicon.png" />
@@ -19,6 +20,6 @@ export default function Home() {
       </Head>
       <PageHeader />
       <Description />
-    </div>
+    </Page>
   );
 }

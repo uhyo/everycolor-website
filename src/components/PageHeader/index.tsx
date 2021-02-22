@@ -12,7 +12,7 @@ export const PageHeader: React.VFC<Props> = ({ initialColor }) => {
         <h1 className={classes.title}>Everycolor</h1>
         <p className={classes.description}>Gives name to every color.</p>
       </header>
-      <div className={classes.colorInput}>
+      <div>
         <ColorInput initialColor={initialColor} />
       </div>
     </div>

@@ -1,8 +1,6 @@
-import classes from "./Description.module.css";
-
 export const Description: React.VFC = () => {
   return (
-    <main className={classes.wrapper}>
+    <main>
       <section>
         <h1>What?</h1>
         <p>
@@ -17,7 +15,7 @@ export const Description: React.VFC = () => {
             </a>
           </i>{" "}
           Here it is! The <code>everycolor</code> package is here to give
-          distinct names to all the 16,777,216 colors in the RGB namespace!
+          distinct names to all the 16,777,216 colors in the RGB namespace.
         </p>
       </section>
       <section>

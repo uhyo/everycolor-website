@@ -3,7 +3,7 @@
 }
 
 .title {
-  font-size: 5rem;
+  font-size: var(--text-xl);
   background: paint(textChecks);
   background-color: hsl(0, 0%, 25%);
   background-clip: text;
@@ -21,9 +21,4 @@
 
 .description {
   font-size: 1.5rem;
-}
-
-.colorInput {
-  margin: 0 auto;
-  max-width: 800px;
 }

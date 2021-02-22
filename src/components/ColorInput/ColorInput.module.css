@@ -7,7 +7,7 @@
 }
 
 .input input {
-  font-size: 3rem;
+  font-size: var(--text-l);
   color: #444444;
 }
 
@@ -30,7 +30,7 @@
   height: 100%;
   padding: 0.5rem;
   display: flex;
-  font-size: 3rem;
+  font-size: var(--text-l);
   font-weight: bold;
   flex-flow: column nowrap;
   justify-content: center;
@@ -69,10 +69,11 @@
 }
 
 .random button {
-  font-size: 1.5rem;
+  font-size: var(--text-ml);
   font-weight: bold;
   background-color: #f3f3f3;
   border: 1px solid #999999;
   color: #444444;
   border-radius: 0.25rem;
+  touch-action: manipulation;
 }

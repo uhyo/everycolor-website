@@ -6,6 +6,20 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+:root {
+  --text-xl: 5rem;
+  --text-l: 3rem;
+  --text-ml: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  :root {
+    --text-xl: 3rem;
+    --text-l: 2rem;
+    --text-ml: 1.25rem;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #222222;

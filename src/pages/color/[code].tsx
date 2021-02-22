@@ -2,6 +2,7 @@ import { GetServerSidePropsContext, GetServerSidePropsResult } from "next";
 import Head from "next/head";
 import React from "react";
 import { Description } from "../../components/Description";
+import { Page } from "../../components/Page";
 import { PageHeader } from "../../components/PageHeader";
 import { appOrigin } from "../../constants/appOrigin";
 import { useColorName } from "../../hooks/useColorName";
@@ -30,7 +31,7 @@ export default function ColorPage({ code }: ServerSideProps) {
   const desc = colorName ? `${code} is ${colorName.name}` : "";
   const title = colorName ? `${code} - Everycolor` : "Everycolor";
   return (
-    <div>
+    <Page>
       <Head>
         <title>{title}</title>
         <link rel="icon" href="/favicon.png" />
@@ -50,6 +51,6 @@ export default function ColorPage({ code }: ServerSideProps) {
       </Head>
       <PageHeader initialColor={code} />
       <Description />
-    </div>
+    </Page>
   );
 }
