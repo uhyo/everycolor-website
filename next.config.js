@@ -1,5 +1,6 @@
 const util = require('util')
 module.exports = {
+  target: "server",
   future: {
     webpack5: true
   },
