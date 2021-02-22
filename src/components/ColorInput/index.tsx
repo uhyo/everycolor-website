@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useColorName } from "../../hooks/useColorName";
 import { bgLightOrDark } from "../../logic/color";
+import { ColorInfo } from "../ColorInfo";
 import { useLastExistingValue } from "../hooks/useLastExistingValue";
-import { ShareColorButton } from "../ShareColorButton";
 import classes from "./ColorInput.module.css";
 import { useRandomColor } from "./useRandomColor";
 
@@ -63,7 +63,7 @@ export const ColorInput: React.VFC<Props> = ({ initialColor }) => {
         </button>
       </div>
       <div className={classes.share}>
-        <ShareColorButton color={colorName} />
+        {lastColorName && <ColorInfo colorData={lastColorName} />}
       </div>
     </div>
   );

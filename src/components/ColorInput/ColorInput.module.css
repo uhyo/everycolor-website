@@ -4,7 +4,10 @@
     "input is random" auto
     "name name name" minmax(8rem, auto)
     "share share share" auto / auto 1fr auto;
-  gap: 0.5rem;
+}
+
+.input {
+  margin-bottom: 0.5rem;
 }
 
 .input input {

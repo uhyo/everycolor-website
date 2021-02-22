@@ -1,0 +1,30 @@
+.light {
+  padding: 0.5rem;
+  background-color: silverhalfquarterwhite;
+  color: black;
+}
+
+.dark {
+  padding: 0.5rem;
+  background-color: halfbitgray;
+  color: white;
+}
+
+.light pre,
+.dark pre {
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.title {
+  margin: 1.5rem 0 0 0;
+  font-size: 1rem;
+  font-weight: normal;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  overflow-wrap: break-word;
+}
+
+.title b {
+  font-weight: normal;
+}
