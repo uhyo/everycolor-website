@@ -44,6 +44,33 @@ export const Description: React.VFC = () => {
           this plugin, you can use Everycolor names in your CSS.
         </p>
       </section>
+      <section>
+        <h1>Resources</h1>
+        <ul>
+          <li>
+            <a
+              href="https://github.com/uhyo/everycolor"
+              target="_blank"
+              rel="external noopener"
+            >
+              GitHub (everycolor package)
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://github.com/uhyo/everycolor-website"
+              target="_blank"
+              rel="external noopener"
+            >
+              GitHub (this website)
+            </a>
+          </li>
+        </ul>
+        <p>
+          All kinds of help, including bug reports, bug fixes and also name
+          change suggestions, are welcome.
+        </p>
+      </section>
     </main>
   );
 };
