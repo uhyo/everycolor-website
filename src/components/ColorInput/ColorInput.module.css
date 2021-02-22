@@ -2,7 +2,8 @@
   display: grid;
   grid-template:
     "input is random" auto
-    "name name name" minmax(8rem, auto) / auto 1fr auto;
+    "name name name" minmax(8rem, auto)
+    "share share share" auto / auto 1fr auto;
   gap: 0.5rem;
 }
 
@@ -76,4 +77,16 @@
   color: #444444;
   border-radius: 0.25rem;
   touch-action: manipulation;
+}
+
+.share {
+  grid-area: share;
+}
+
+.share button {
+  background-color: #f0ffff;
+  color: #334466;
+  border: 1px solid #999999;
+  color: #444444;
+  border-radius: 0.25rem;
 }

@@ -1,7 +1,15 @@
 import { fromRGB } from "everycolor";
 import { useMemo } from "react";
 
-export function useColorName(rgb: string) {
+export type ColorData = {
+  rgb: string;
+  r: number;
+  g: number;
+  b: number;
+  name: string;
+};
+
+export function useColorName(rgb: string): ColorData | undefined {
   return useMemo(() => {
     const match = rgb.match(/^#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i);
     if (!match) {
