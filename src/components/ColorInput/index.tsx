@@ -2,9 +2,11 @@ import { fromRGB } from "everycolor";
 import { useMemo, useState } from "react";
 import { useLastExistingValue } from "../hooks/useLastExistingValue";
 import classes from "./ColorInput.module.css";
+import { useRandomColor } from "./useRandomColor";
 
 export const ColorInput: React.VFC = () => {
   const [rgb, setRgb] = useState("#ff0000");
+  const generateRandom = useRandomColor();
 
   const colorName = useMemo(() => {
     const match = rgb.match(/^#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i);
@@ -61,6 +63,15 @@ export const ColorInput: React.VFC = () => {
           "..."
         )}
       </div>
+      <div className={classes.random}>
+        <button
+          onClick={() => {
+            setRgb(generateRandom());
+          }}
+        >
+          random
+        </button>
+      </div>
     </div>
   );
 };
@@ -69,7 +80,9 @@ export const ColorInput: React.VFC = () => {
  * Returns whether given color should have a light/dark background.
  */
 function bgLightOrDark(r: number, g: number, b: number) {
-  if (Math.min(r, g, b) >= 140) {
+  // https://www.w3.org/TR/WCAG20/#relativeluminancedef
+  const rellum = 0.2126 * (r / 256) + 0.7152 * (g / 256) + 0.0722 * (b / 256);
+  if (rellum > 0.5) {
     return "dark";
   } else {
     return "light";

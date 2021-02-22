@@ -1,8 +1,8 @@
 .wrapper {
   display: grid;
   grid-template:
-    "input is" auto
-    "name name" minmax(8rem, auto) / auto 1fr;
+    "input is random" auto
+    "name name name" minmax(8rem, auto) / auto 1fr auto;
 }
 
 .input input {
@@ -57,4 +57,21 @@
   height: 100%;
   z-index: 1;
   background-color: rgba(255, 255, 255, 0.8);
+}
+
+.random {
+  grid-area: random;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.random button {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: #f3f3f3;
+  border: 1px solid #999999;
+  color: #444444;
+  border-radius: 0.25rem;
 }
