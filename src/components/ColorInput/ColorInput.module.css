@@ -3,6 +3,7 @@
   grid-template:
     "input is random" auto
     "name name name" minmax(8rem, auto) / auto 1fr auto;
+  gap: 0.5rem;
 }
 
 .input input {

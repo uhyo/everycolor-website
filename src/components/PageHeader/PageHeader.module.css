@@ -10,6 +10,15 @@
   color: transparent;
 }
 
+@media (prefers-color-scheme: dark) {
+  .title {
+    background-color: hsl(0, 0%, 90%);
+    background: paint(lightChecks);
+    background-clip: text;
+    color: transparent;
+  }
+}
+
 .description {
   font-size: 1.5rem;
 }
