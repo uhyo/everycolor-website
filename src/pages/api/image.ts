@@ -4,7 +4,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import path from "path";
 import { bgLightOrDark } from "../../logic/color";
 
-registerFont(path.resolve("./public/Exo.woff"), {
+registerFont(path.resolve("./public/Exo.ttf"), {
   family: "Exo",
 });
 
@@ -62,14 +62,14 @@ function createImage(
   ctx.fillRect(0, 0, width, height);
 
   // color code
-  ctx.font = "bold 100px Exo";
+  ctx.font = "100px Exo";
   ctx.fillStyle = colorCode;
   const text = `${colorCode} is`;
   const metrics = ctx.measureText(text);
   ctx.fillText(text, width / 2 - metrics.width / 2, 100 + padding);
   // color name
   const mainFontSize = 85;
-  ctx.font = `bold ${mainFontSize}px Exo`;
+  ctx.font = `${mainFontSize}px Exo`;
   const lines = measureWrap(
     ctx,
     colorName,
