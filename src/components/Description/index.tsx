@@ -68,6 +68,15 @@ console.log(toRGB("readhalfwhite")); // { r: 255, g: 128, b: 128 }`}</code>
         <ul>
           <li>
             <a
+              href="https://www.npmjs.com/package/everycolor"
+              target="_blank"
+              rel="external noopener"
+            >
+              everycolor on npm
+            </a>
+          </li>
+          <li>
+            <a
               href="https://github.com/uhyo/everycolor"
               target="_blank"
               rel="external noopener"

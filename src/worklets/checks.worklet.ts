@@ -52,3 +52,5 @@ if ((globalThis as any).registerPaint) {
   (globalThis as any).registerPaint("darkChecks", DarkPainter);
   (globalThis as any).registerPaint("lightChecks", LightPainter);
 }
+
+export {};

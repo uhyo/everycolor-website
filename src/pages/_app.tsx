@@ -2,7 +2,7 @@ import { AppProps } from "next/app";
 import Head from "next/head";
 import "../styles/globals.css";
 
-if (typeof CSS !== undefined && "paintWorklet" in CSS) {
+if (typeof CSS !== "undefined" && "paintWorklet" in CSS) {
   const darkChecksWorklet = new URL(
     "../worklets/checks.worklet.ts",
     import.meta.url

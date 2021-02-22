@@ -21,7 +21,8 @@ module.exports = {
       use: {
         loader: "babel-loader",
         options: {
-          presets: ["@babel/preset-typescript"]
+          presets: ["@babel/preset-typescript"],
+          plugins: ["babel-plugin-remove-import-export"]
         }
       },
       generator: {
