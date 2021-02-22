@@ -1,30 +1,18 @@
-import { fromRGB } from "everycolor";
-import { useMemo, useState } from "react";
+import { useState } from "react";
+import { useColorName } from "../../hooks/useColorName";
 import { useLastExistingValue } from "../hooks/useLastExistingValue";
 import classes from "./ColorInput.module.css";
 import { useRandomColor } from "./useRandomColor";
 
-export const ColorInput: React.VFC = () => {
-  const [rgb, setRgb] = useState("#ff0000");
+type Props = {
+  initialColor?: string;
+};
+
+export const ColorInput: React.VFC<Props> = ({ initialColor }) => {
+  const [rgb, setRgb] = useState(initialColor || "#ff0000");
   const generateRandom = useRandomColor();
 
-  const colorName = useMemo(() => {
-    const match = rgb.match(/^#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i);
-    if (!match) {
-      return undefined;
-    }
-    const [, rs, gs, bs] = match;
-    const r = parseInt(rs, 16);
-    const g = parseInt(gs, 16);
-    const b = parseInt(bs, 16);
-    return {
-      rgb,
-      r,
-      g,
-      b,
-      name: fromRGB(r, g, b),
-    };
-  }, [rgb]);
+  const colorName = useColorName(rgb);
 
   const lastColorName = useLastExistingValue(colorName);
 
