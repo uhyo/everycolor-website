@@ -1,6 +1,8 @@
+import classes from "./Description.module.css";
+
 export const Description: React.VFC = () => {
   return (
-    <main>
+    <main className={classes.description}>
       <section>
         <h1>What?</h1>
         <p>
@@ -36,12 +38,29 @@ export const Description: React.VFC = () => {
           <code>toRGB</code>. These functions are useful for conversion between
           RGB values and color names.
         </p>
+        <pre>
+          <code>{`import { fromRGB, toRGB } from "everycolor";
+
+console.log(fromRGB(255, 0, 0)); // "red"
+console.log(fromRGB(255, 128, 128)); // "redhalfwhite"
+
+console.log(toRGB("red")); // { r: 255, g: 0, b: 0 };
+console.log(toRGB("readhalfwhite")); // { r: 255, g: 128, b: 128 }`}</code>
+        </pre>
       </section>
       <section>
         <h1>PostCSS</h1>
         <p>
           We also provide a PostCSS plugin <code>everycolor/postcss</code>. With
-          this plugin, you can use Everycolor names in your CSS.
+          this plugin, you can use Everycolor names in your CSS.{" "}
+          <a
+            href="https://github.com/uhyo/everycolor-website/blob/main/src/styles/globals.css"
+            target="_blank"
+            rel="external noopener"
+          >
+            Check out how nice it looks
+          </a>
+          .
         </p>
       </section>
       <section>
