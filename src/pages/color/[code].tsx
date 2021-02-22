@@ -3,6 +3,7 @@ import Head from "next/head";
 import React from "react";
 import { Description } from "../../components/Description";
 import { PageHeader } from "../../components/PageHeader";
+import { appOrigin } from "../../constants/appOrigin";
 import { useColorName } from "../../hooks/useColorName";
 
 type ServerSideProps = {
@@ -26,15 +27,26 @@ export async function getServerSideProps(
 
 export default function ColorPage({ code }: ServerSideProps) {
   const colorName = useColorName(code);
+  const desc = colorName ? `${code} is ${colorName.name}` : "";
+  const title = colorName ? `${code} - Everycolor` : "Everycolor";
   return (
     <div>
       <Head>
-        <title>
-          {colorName
-            ? `${code} is ${colorName.name} - Everycolor`
-            : "Everycolor"}
-        </title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>{title}</title>
+        <link rel="icon" href="/favicon.png" />
+        <meta
+          property="og:url"
+          content={appOrigin + "/color/" + code.slice(1)}
+        />
+        <meta
+          property="og:image"
+          content={appOrigin + "/api/image?code=" + code.slice(1)}
+        />
+        <meta property="og:site_name" content="Everycolor" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={desc} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:creator" content="@uhyo_" />
       </Head>
       <PageHeader initialColor={code} />
       <Description />

@@ -26,6 +26,7 @@ export default async (
     response.writeHead(200, {
       "Content-Type": "image/png",
       "Content-Length": buf.length,
+      "Cache-Control": "max-age=3600",
     });
     response.end(buf, "binary");
   } catch {
