@@ -1,7 +1,12 @@
-import { createCanvas } from "canvas";
+import { createCanvas, registerFont } from "canvas";
 import { fromRGB } from "everycolor";
 import { NextApiRequest, NextApiResponse } from "next";
+import path from "path";
 import { bgLightOrDark } from "../../logic/color";
+
+registerFont(path.resolve("./public/Exo.woff"), {
+  family: "Exo",
+});
 
 export default async (
   request: NextApiRequest,
@@ -57,14 +62,14 @@ function createImage(
   ctx.fillRect(0, 0, width, height);
 
   // color code
-  ctx.font = "bold 100px sans-serif";
+  ctx.font = "bold 100px Exo";
   ctx.fillStyle = colorCode;
   const text = `${colorCode} is`;
   const metrics = ctx.measureText(text);
   ctx.fillText(text, width / 2 - metrics.width / 2, 100 + padding);
   // color name
   const mainFontSize = 85;
-  ctx.font = `bold ${mainFontSize}px sans-serif`;
+  ctx.font = `bold ${mainFontSize}px Exo`;
   const lines = measureWrap(
     ctx,
     colorName,
