@@ -1,0 +1,16 @@
+.wrapper {
+  text-align: center;
+}
+
+.title {
+  font-size: 5rem;
+}
+
+.description {
+  font-size: 1.5rem;
+}
+
+.colorInput {
+  margin: 0 auto;
+  max-width: 800px;
+}

@@ -1,0 +1,36 @@
+.wrapper {
+  display: grid;
+  grid-template:
+    "input is" auto
+    "name name" minmax(8rem, auto) / auto 1fr;
+}
+
+.input input {
+  font-size: 3rem;
+  color: #444444;
+}
+
+.is {
+  margin-left: 1rem;
+  font-size: 2rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.colorName {
+  grid-area: name;
+  display: flex;
+  font-size: 3rem;
+  font-weight: bold;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  word-break: break-all;
+  overflow-wrap: break-word;
+}
+
+.typingColorName {
+  opacity: 0.2;
+}
