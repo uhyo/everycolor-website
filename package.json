@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "canvas": "^2.6.1",
     "everycolor": "^1.0.0-alpha.0",
     "next": "10.0.7",
     "react": "17.0.1",
