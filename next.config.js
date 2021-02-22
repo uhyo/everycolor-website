@@ -1,6 +1,5 @@
 const util = require('util')
 module.exports = {
-  target: "server",
   future: {
     webpack5: true
   },
@@ -29,6 +28,9 @@ module.exports = {
       generator: {
         filename: 'static/[contenthash].js[query]'
       }
+    }, {
+      test: /\.ttf$/,
+      type: "asset/inline"
     })
     return config
   },

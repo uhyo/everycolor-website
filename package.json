@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "canvas": "^2.6.1",
+    "data-uri-to-buffer": "^3.0.1",
     "everycolor": "^1.0.0-alpha.2",
     "next": "10.0.7",
     "react": "17.0.1",

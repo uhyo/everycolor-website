@@ -1,10 +1,19 @@
 import { createCanvas, registerFont } from "canvas";
+import dataUriToBuffer from "data-uri-to-buffer";
 import { fromRGB } from "everycolor";
+import { mkdtempSync, writeFileSync } from "fs";
 import { NextApiRequest, NextApiResponse } from "next";
+import { tmpdir } from "os";
 import path from "path";
+import fontDataURI from "../../../fonts/Exo.ttf";
 import { bgLightOrDark } from "../../logic/color";
 
-registerFont(path.resolve("./public/Exo.ttf"), {
+const fontBuf = dataUriToBuffer(fontDataURI);
+const td = mkdtempSync(path.join(tmpdir(), "everycolor"));
+const fontFile = path.join(td, "Exo.ttf");
+writeFileSync(fontFile, fontBuf);
+
+registerFont(fontFile, {
   family: "Exo",
 });
 
