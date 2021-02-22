@@ -14,11 +14,13 @@ export const ShareColorButton: React.VFC<Props> = ({ color }) => {
     const url = appOrigin + "/color/" + color.rgb.slice(1);
     const text = `${color.rgb.replace("#", "#\u200b")} is ${color.name}`;
     if (navigator.share !== undefined) {
-      navigator.share({
-        title: `${color.rgb} - Everycolor`,
-        url,
-        text,
-      });
+      navigator
+        .share({
+          title: `${color.rgb} - Everycolor`,
+          url,
+          text,
+        })
+        .catch(() => {});
     } else {
       window.open(
         `https://twitter.com/intent/tweet?text=${encodeURIComponent(
