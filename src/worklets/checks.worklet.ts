@@ -1,4 +1,7 @@
-class CheckerboardPainter {
+abstract class CheckerboardPainter {
+  protected abstract sBase: number;
+  protected abstract lBase: number;
+
   private cache = new Map<string, string>();
   paint(
     ctx: CanvasRenderingContext2D,
@@ -14,8 +17,8 @@ class CheckerboardPainter {
         let col = this.cache.get(`${x}-${y}`);
         if (!col) {
           const h = Math.floor(Math.random() * 360);
-          const s = 30 + Math.floor(Math.random() * 20);
-          const l = 25 + Math.floor(Math.random() * 20);
+          const s = this.sBase + Math.floor(Math.random() * 20);
+          const l = this.lBase + Math.floor(Math.random() * 20);
           col = `hsl(${h},${s}%,${l}%)`;
           this.cache.set(`${x}-${y}`, col);
         }
@@ -28,7 +31,24 @@ class CheckerboardPainter {
   }
 }
 
+class TextPainter extends CheckerboardPainter {
+  sBase = 30;
+  lBase = 25;
+}
+
+class DarkPainter extends CheckerboardPainter {
+  sBase = 30;
+  lBase = 15;
+}
+
+class LightPainter extends CheckerboardPainter {
+  sBase = 20;
+  lBase = 75;
+}
+
 // Register our class under a specific name
 if ((globalThis as any).registerPaint) {
-  (globalThis as any).registerPaint("darkChecks", CheckerboardPainter);
+  (globalThis as any).registerPaint("textChecks", TextPainter);
+  (globalThis as any).registerPaint("darkChecks", DarkPainter);
+  (globalThis as any).registerPaint("lightChecks", LightPainter);
 }

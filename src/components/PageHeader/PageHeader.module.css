@@ -4,7 +4,7 @@
 
 .title {
   font-size: 5rem;
-  background: paint(darkChecks);
+  background: paint(textChecks);
   background-color: hsl(0, 0%, 25%);
   background-clip: text;
   color: transparent;

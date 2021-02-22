@@ -3,7 +3,7 @@ import "../styles/globals.css";
 
 if ("paintWorklet" in CSS) {
   const darkChecksWorklet = new URL(
-    "../worklets/darkChecks.worklet.ts",
+    "../worklets/checks.worklet.ts",
     import.meta.url
   );
   CSS.paintWorklet.addModule(darkChecksWorklet.href);

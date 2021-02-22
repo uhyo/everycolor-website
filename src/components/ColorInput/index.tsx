@@ -11,10 +11,16 @@ export const ColorInput: React.VFC = () => {
     if (!match) {
       return undefined;
     }
-    const [, r, g, b] = match;
+    const [, rs, gs, bs] = match;
+    const r = parseInt(rs, 16);
+    const g = parseInt(gs, 16);
+    const b = parseInt(bs, 16);
     return {
       rgb,
-      name: fromRGB(parseInt(r, 16), parseInt(g, 16), parseInt(b, 16)),
+      r,
+      g,
+      b,
+      name: fromRGB(r, g, b),
     };
   }, [rgb]);
 
@@ -32,18 +38,40 @@ export const ColorInput: React.VFC = () => {
         />
       </span>
       <span className={classes.is}>is</span>
-      {lastColorName ? (
-        <div
-          className={
-            classes.colorName + (colorName ? "" : " " + classes.typingColorName)
-          }
-          style={{ color: lastColorName.rgb }}
-        >
-          {lastColorName.name}
-        </div>
-      ) : (
-        "..."
-      )}
+      <div
+        className={
+          classes.colorWrapper +
+          (colorName ? "" : " " + classes.typingColorName)
+        }
+      >
+        {lastColorName ? (
+          <div
+            className={
+              classes.colorName +
+              " " +
+              classes[
+                bgLightOrDark(lastColorName.r, lastColorName.g, lastColorName.b)
+              ]
+            }
+            style={{ color: lastColorName.rgb }}
+          >
+            {lastColorName.name}
+          </div>
+        ) : (
+          "..."
+        )}
+      </div>
     </div>
   );
 };
+
+/**
+ * Returns whether given color should have a light/dark background.
+ */
+function bgLightOrDark(r: number, g: number, b: number) {
+  if (Math.min(r, g, b) >= 140) {
+    return "dark";
+  } else {
+    return "light";
+  }
+}
