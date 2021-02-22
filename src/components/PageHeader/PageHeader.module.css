@@ -5,14 +5,14 @@
 .title {
   font-size: var(--text-xl);
   background: paint(textChecks);
-  background-color: hsl(0, 0%, 25%);
+  background-color: halfgray;
   background-clip: text;
   color: transparent;
 }
 
 @media (prefers-color-scheme: dark) {
   .title {
-    background-color: hsl(0, 0%, 90%);
+    background-color: silverhalflittlebitwhite;
     background: paint(lightChecks);
     background-clip: text;
     color: transparent;

@@ -9,7 +9,6 @@ module.exports = {
     for (const rule of config.module.rules) {
       if (rule.test?.exec?.("a.ts")) {
         // exclude .worklet.ts from default configuration
-        console.log(rule);
         rule.exclude = [
           rule.exclude,
           /\.worklet\.ts$/

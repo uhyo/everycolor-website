@@ -22,13 +22,13 @@ body {
 
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: #222222;
+    background-color: quarterslightgray;
     color: white;
   }
 }
 
 a {
-  color: #3399ff;
+  color: bluetealsomewhatlittleimperceptibleaquasomewhatlittleimperceptibleinfinitesimalwhite;
   text-decoration: none;
 }
 a:hover {
