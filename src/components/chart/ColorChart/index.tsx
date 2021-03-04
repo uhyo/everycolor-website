@@ -20,6 +20,8 @@ export const ColorChart: React.FC<{
     }
     const cells = new ChartCells(cellSize, wrapperElement);
     cellsRef.current = cells;
+    const cleanup = cells.run();
+    return cleanup;
   }, []);
   useEffect(() => {
     cellsRef.current?.setBlue(blue);
