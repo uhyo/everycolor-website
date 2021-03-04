@@ -128,9 +128,18 @@ export class ChartCells {
     for (let x = 0; x < cellX; x++) {
       const cx = firstCellLeft + x * cellSize;
       const r = firstR - x;
+      if (r > 255) {
+        continue;
+      }
+      if (r < 0) {
+        break;
+      }
       for (let y = 0; y < cellY; y++) {
         const cy = firstCellTop + y * cellSize;
         const g = firstG - y;
+        if (g > 255) {
+          continue;
+        }
         if (g < 0) {
           break;
         }
