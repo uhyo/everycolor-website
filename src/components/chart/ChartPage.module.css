@@ -13,7 +13,7 @@
 }
 
 .header > h1 {
-  margin: 0 1rem 0 0;
+  margin: 0;
   padding: 2px 0;
   font-size: var(--text-ml);
   background: paint(textChecks);
@@ -35,8 +35,13 @@
   }
 }
 
+.header > p {
+  margin: 0;
+}
+
 .control {
   flex: auto 0 0;
+  margin: 0 1rem;
 }
 
 .main {

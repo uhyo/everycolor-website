@@ -12,6 +12,7 @@ export const ChartPage: React.FC<{
           <Link href="/">EveryColor</Link> Chart
         </h1>
         <div className={classes.control}>{control}</div>
+        <p>Click/Tap to reveal color name</p>
       </header>
       <main className={classes.main}>{children}</main>
     </div>
