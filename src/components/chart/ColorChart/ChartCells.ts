@@ -57,8 +57,11 @@ export class ChartCells {
     cell.style.wordBreak = "break-all";
     cell.style.overflow = "hidden";
     cell.style.whiteSpace = "pre-wrap";
+    // @ts-expect-error
+    cell.style.contain = "size layout paint";
+
     for (let i = 0; i < cellX * cellY; i++) {
-      const c = cell.cloneNode();
+      const c = cell.cloneNode(false);
       df.append(c);
       colorMap.set(-i - 1, c as HTMLElement);
     }
@@ -77,8 +80,20 @@ export class ChartCells {
       rafHandle = requestAnimationFrame(mainLoop);
     };
     rafHandle = requestAnimationFrame(mainLoop);
+
+    const eventHandler = (e: Event) => {
+      this.showColor(e.composedPath()[0] as HTMLElement);
+    };
+    this.#element.addEventListener("click", eventHandler, {
+      passive: true,
+    });
+    this.#element.addEventListener("touchstart", eventHandler, {
+      passive: true,
+    });
     return () => {
       cancelAnimationFrame(rafHandle);
+      this.#element.removeEventListener("click", eventHandler);
+      this.#element.removeEventListener("touchstart", eventHandler);
     };
   }
 
@@ -153,16 +168,25 @@ export class ChartCells {
       const b = rgbv & 0xff;
       el.style.transform = `translate(${cx}px,${cy}px)`;
       el.style.backgroundColor = `rgb(${r},${g},${b})`;
+      el.dataset.color = `${r},${g},${b}`;
+      el.textContent = "";
       const bg = bgLightOrDark(r, g, b);
       if (bg === "dark") {
         el.style.color = "#000000";
       } else {
         el.style.color = "#ffffff";
       }
-      el.textContent = `rgb(${r},${g},${b})\n${fromRGB(r, g, b)}`;
       nextColorMap.set(rgbv, el);
     }
 
     this.#colorMap = nextColorMap;
+  }
+
+  private showColor(e: HTMLElement) {
+    const color = e.dataset.color;
+    if (color) {
+      const [r, g, b] = color.split(",").map((s) => Number(s));
+      e.textContent = `rgb(${r},${g},${b})\n${fromRGB(r, g, b)}`;
+    }
   }
 }
