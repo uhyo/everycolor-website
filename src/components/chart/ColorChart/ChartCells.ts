@@ -1,3 +1,6 @@
+import { fromRGB } from "everycolor";
+import { bgLightOrDark } from "../../../logic/color";
+
 const maxColorValue = 256;
 
 export class ChartCells {
@@ -48,8 +51,12 @@ export class ChartCells {
     cell.style.position = "absolute";
     cell.style.left = "0";
     cell.style.top = "0";
-    cell.style.width = `${cellSize}px`;
-    cell.style.height = `${cellSize}px`;
+    cell.style.width = `${cellSize - 1}px`;
+    cell.style.height = `${cellSize - 1}px`;
+    cell.style.fontSize = "0.8rem";
+    cell.style.wordBreak = "break-all";
+    cell.style.overflow = "hidden";
+    cell.style.whiteSpace = "pre-wrap";
     for (let i = 0; i < cellX * cellY; i++) {
       const c = cell.cloneNode();
       df.append(c);
@@ -146,6 +153,13 @@ export class ChartCells {
       const b = rgbv & 0xff;
       el.style.transform = `translate(${cx}px,${cy}px)`;
       el.style.backgroundColor = `rgb(${r},${g},${b})`;
+      const bg = bgLightOrDark(r, g, b);
+      if (bg === "dark") {
+        el.style.color = "#000000";
+      } else {
+        el.style.color = "#ffffff";
+      }
+      el.textContent = `rgb(${r},${g},${b})\n${fromRGB(r, g, b)}`;
       nextColorMap.set(rgbv, el);
     }
 
