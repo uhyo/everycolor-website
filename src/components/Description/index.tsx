@@ -1,9 +1,15 @@
+import Link from "next/link";
 import classes from "./Description.module.css";
 
 export const Description: React.VFC = () => {
   return (
     <main className={classes.description}>
       <section>
+        <header>
+          <p>
+            <em>New</em>: <Link href="/chart">Everycolor chart</Link>!
+          </p>
+        </header>
         <h1>What?</h1>
         <p>
           A Japanese engineer said,{" "}
